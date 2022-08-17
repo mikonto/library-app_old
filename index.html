@@ -12,6 +12,23 @@ Your book objects should have the book’s title, author, the number of pages, a
     <title>Document</title>
 </head>
 <body>
+
+    <button id="accordion"></button>
+    <div id="panel">
+        <form class="form-inline">
+            <label for="author">Author:</label><br>
+            <input type="text" id="author" name="author"><br>
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title">
+            <label for="pages">Page count:</label><br>
+            <input type="text" id="pages" name="pages">
+            <label>
+                <input type="checkbox" name="read"> Read
+            </label>
+            <button id="add" type="submit">Add</button>
+          </form>
+    </div>
+
     <table id="table">
         <tr>
             <th>Author</th>
