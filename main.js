@@ -13,7 +13,7 @@ accordion.addEventListener("click", function() { // clicking new book button ope
 })
 
 var addBtn = document.getElementById("add-btn"); // add button to add new book
-addBtn.addEventListener("click", function() { // when add button is clicked 
+addBtn.addEventListener("click", function() { // when add button is clicked
     var author = document.getElementById("author").value; // content in input fields are put into variables
     var title = document.getElementById("title").value;
     var pages = document.getElementById("pages").value;
@@ -40,6 +40,15 @@ function Book(author, title, pages, read) { // construct new object
     this.read = read;
 }
 
+Book.prototype.toggleRead = function() {
+    if (this.read) {
+        this.read = false;
+    }
+    else {
+        this.read = true;
+    }
+}
+
 function createTable() { // create HTML table from myLibrary array
     const table = document.getElementById('table'); // new variable for table
     clearTable(table); // clear table before adding myLibrary into it (prevent duplicate books)
@@ -48,7 +57,26 @@ function createTable() { // create HTML table from myLibrary array
         const row = document.createElement('tr'); // create row variable
         for(const val of Object.values(obj)){ // loop through values of each object
             const col = document.createElement('td'); // create cell variable
-            col.textContent = val; // add value into cell
+            if (val === true) {
+                var newCheckBox = document.createElement('input');
+                newCheckBox.type = 'checkbox';
+                col.appendChild(newCheckBox);
+                newCheckBox.id = rowId;
+                newCheckBox.checked = true;
+                newCheckBox.classList.add("checkbox");
+            }
+            else if (val === false) {
+                var newCheckBox = document.createElement('input');
+                newCheckBox.type = 'checkbox';
+                col.appendChild(newCheckBox);
+                newCheckBox.id = rowId;
+                newCheckBox.classList.add("checkbox");
+
+            }
+            else {
+                col.textContent = val; // add value into cell
+            }
+            
             row.appendChild(col); // add cell into row
         }
         const deleteCell = document.createElement('td'); // last cell for each row (container for deleteImg)
@@ -78,5 +106,11 @@ document.body.addEventListener("click", function (event) { // when clicking body
     const objectToBeRemoved = myLibrary[id]; // use unique delete img id to determine which object in array is to be removed 
     myLibrary.splice(myLibrary.findIndex(a => a === objectToBeRemoved) , 1) // remove object from array
     createTable() // update HTML table after array has been modified
+    }
+    else if (event.target.classList.contains("checkbox")) {
+        var id = event.target.getAttribute("id");
+        myLibrary[id].toggleRead();
+        createTable() // update HTML table after array has been modified
+
     }
 });

@@ -36,7 +36,7 @@ body {
   }
   
   #panel {
-    margin-top: 20px;
+    margin-top: 30px;
     /* padding: 0 18px; */
     display: none;
     /* background-color: white; */
@@ -48,7 +48,28 @@ body {
     flex-flow: row wrap;
     align-items: center;
     justify-items: start;
+    justify-content: flex-start;
+    gap:30px;
   }
+
+  .form-inline div {
+    display: flex;
+  }
+
+  .input-text {
+    width: 250px;
+  }
+
+  .input-checkbox {
+    gap: 5px;
+  }
+
+  .form-inline div input[type=text] {
+    margin-left: auto; 
+    margin-right: 0;
+    /* width: 100%; */
+  }
+
   
   .form-inline > label, .form-inline > button {
     margin-left: 25px;
@@ -58,7 +79,7 @@ body {
 #table {
     border-collapse: collapse;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 30px;
   }
   
   #table td, #table th {
@@ -78,9 +99,9 @@ body {
     color: white;
   }
 
-  #delete-cell {
-    width: 20px;
-  }
+  tr > td:last-of-type {
+    text-align: center;
+}
 
   .delete-img {
     width: 15px;

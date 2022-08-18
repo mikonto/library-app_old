@@ -12,24 +12,34 @@
     <button id="accordion"></button>
     <div id="panel">
         <form class="form-inline">
-            <label for="author">Author:</label><br>
-            <input type="text" id="author" name="author"><br>
-            <label for="title">Title:</label><br>
-            <input type="text" id="title" name="title">
-            <label for="pages">Page count:</label><br>
-            <input type="text" id="pages" name="pages">
-            <label for="read">Read</label><br>
-            <input type="checkbox" id="read" name="read" value="read">
+            <div class="input-text">
+                <label for="author">Author:</label><br>
+                <input type="text" id="author" name="author"><br>
+            </div>
+            <div class="input-text">
+                <label for="title">Title:</label><br>
+                <input type="text" id="title" name="title">
+            </div>
+            <div class="input-text">
+                <label for="pages">Pages:</label><br>
+                <input type="text" id="pages" name="pages">
+            </div>
+            <div class="input-checkbox">
+                <label for="read">Read:</label><br>
+                <input type="checkbox" id="read" name="read" value="read">
+            </div>
+            <div>
             <button type="button" id="add-btn">Add</button>
+            </div>
           </form>
     </div>
 
     <table id="table">
         <tr>
-            <th>Author</th>
-            <th>Title</th>
-            <th>Page count</th>
-            <th>Read</th>
+            <th style="width:34%">Author</th>
+            <th style="width:44%">Title</th>
+            <th style="width:9%">Page count</th>
+            <th style="width:9%">Read</th>
             <th id="delete-cell"></th>
           </tr>
     </table>
